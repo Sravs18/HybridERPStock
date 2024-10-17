@@ -46,31 +46,26 @@ public class FunctionLibrary {
 	}
 
 	//method for wait to any element
-	public static void waitForElement(String LocatorType,String Locatorvalue,String TestData)
-	{
-		WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(Integer.parseInt(TestData)));
-		if(LocatorType.equalsIgnoreCase("xpath"))
+		public static void waitForElement(String LocatorType,String LocatorValue,String TestData)
 		{
-			//wai untill element is visible
-			mywait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(TestData)));
-
+			WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(Integer.parseInt(TestData)));
+			if(LocatorType.equalsIgnoreCase("xpath"))
+			{
+				//wait until element is visible
+				mywait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LocatorValue)));
+			}
+			if(LocatorType.equalsIgnoreCase("name"))
+			{
+				//wait until element is visible
+				mywait.until(ExpectedConditions.visibilityOfElementLocated(By.name(LocatorValue)));
+			}
+			if(LocatorType.equalsIgnoreCase("id"))
+			{
+				//wait until element is visible
+				mywait.until(ExpectedConditions.visibilityOfElementLocated(By.id(LocatorValue)));
+			}
 		}
-
-		if(LocatorType.equalsIgnoreCase("name"))
-		{
-			//wai untill element is visible
-			mywait.until(ExpectedConditions.visibilityOfElementLocated(By.name(TestData)));
-
-		}
-
-		if(LocatorType.equalsIgnoreCase("id"))
-		{
-			//wai untill element is visible
-			mywait.until(ExpectedConditions.visibilityOfElementLocated(By.id(TestData)));
-
-		}
-	}
-	//method for any textbox
+	//method for any Textbox
 	public static void typeAction(String LocatorType,String Locatorvalue,String TestData)
 	{
 		if(LocatorType.equalsIgnoreCase("xpath"))
