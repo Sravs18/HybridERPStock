@@ -61,6 +61,18 @@ public void startTest() throws Throwable
 						{
 							FunctionLibrary.closeBrowser();
 						}
+						if(ObjectType.equalsIgnoreCase("captureStock"))
+						{
+							FunctionLibrary.captureStock(Ltype, Lvalue);
+						}
+						if(ObjectType.equalsIgnoreCase("dropDownAction"))
+						{
+							FunctionLibrary.dropDownAction(Ltype, Lvalue, TestData);
+						}
+						if(ObjectType.equalsIgnoreCase("stockTable"))
+						{
+							FunctionLibrary.stockTable();
+						}
 						//write as pass into status cell in TCmodule sheet
 						xl.setCellData(TCModule, j, 5, "pass", outputpath);
 						Module_status="True";
